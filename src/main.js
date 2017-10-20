@@ -1,5 +1,7 @@
 import Vue from 'vue'
+
 import App from './App'
+import store from './vuex/'
 
 Vue.config.productionTip = false
 
@@ -7,5 +9,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   template: '<App/>',
-  components: { App }
+  components: { App },
+  store
 })
