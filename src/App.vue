@@ -25,8 +25,13 @@ import ParticipantsList from '@/components/ParticipantsList'
 
 export default {
   name: 'app',
+
   components: {
     ParticipantsList
+  },
+
+  beforeMount () {
+    this.$store.commit('addNewParticipant')
   }
 }
 </script>

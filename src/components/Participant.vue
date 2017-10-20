@@ -1,5 +1,5 @@
 <template>
-  <div class="field is-horizontal">
+  <div class="participant field is-horizontal">
     <div class="field-body">
       <div class="field">
         <!-- @todo: consider adding icons -->

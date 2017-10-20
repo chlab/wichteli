@@ -1,18 +1,20 @@
 <template>
-  <div>
+    <div class="participants-list">
     <div class="notification">
       <h2>Start by adding all the participants:</h2>
     </div>
-    <Participant></Participant>
+    <Participant v-for="participant in participants" key="participant.email"></Participant>
   </div>
 </template>
 
 <script>
 import Participant from '@/components/Participant'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     Participant
-  }
+  },
+  computed: mapState(['participants'])
 }
 </script>
