@@ -1,2 +1,16 @@
+// defaults that bulma's initial variables rely on
+@import './meta/initial_variables'
+
+// bulma's initial variables
 @import '~bulma/sass/utilities/initial-variables'
+
+// overrides of any initial or derived variables
+@import './meta/override_variables'
+
+// the rest of bulma
+// @todo only import the components we need
 @import '~bulma'
+
+// bulma customizations (beyond overriding variables)
+@import './base/all'
+@import './elements/all'

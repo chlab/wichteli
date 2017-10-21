@@ -1,8 +1,7 @@
 <template>
     <div class="participants-list">
     <div class="notification">
-      <h2>Start by adding all the participants:</h2>
-      <!-- add note to add yourself -->
+      <h2>Start by adding all the participants. Don't forget to add yourself!</h2>
     </div>
 
     <Participant v-for="participant in participants"
