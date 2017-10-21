@@ -2,7 +2,7 @@
   <div class="select is-fullwidth">
     <select @input="$emit('input', $event.target.value)">
       <option value="-">--</option>
-      <option v-for="(participant, index) in participants" :value="index">
+      <option v-for="(participant, index) in filteredParticipants" :value="index">
         {{ participant.name }}
       </option>
     </select>
@@ -23,6 +23,16 @@ export default {
       type: String
     }
   },
-  computed: mapState(['participants'])
+  computed: {
+    ...mapState(['participants']),
+    filteredParticipants () {
+      return this.participants.filter((participant, index) => {
+        // filter excluded participants
+        return parseInt(index) !== parseInt(this.exclude) &&
+        // filter empty participants
+        participant.name !== ''
+      })
+    }
+  }
 }
 </script>

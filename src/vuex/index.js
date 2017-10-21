@@ -17,8 +17,8 @@ const newParticipant = () => ({
  * @return {Object}
  */
 const newException = () => ({
-  excludeFrom: '',
-  excludeTo: ''
+  excludeFrom: -1,
+  excludeTo: -1
 })
 
 export default new Vuex.Store({
@@ -64,10 +64,10 @@ export default new Vuex.Store({
      */
     updateException (state, { id, excludeFrom, excludeTo }) {
       if (excludeFrom) {
-        state.exceptions[id].excludeFrom = excludeFrom
+        state.exceptions[id].excludeFrom = parseInt(excludeFrom)
       }
       if (excludeTo) {
-        state.exceptions[id].excludeTo = excludeTo
+        state.exceptions[id].excludeTo = parseInt(excludeTo)
       }
     }
   }

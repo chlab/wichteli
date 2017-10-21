@@ -2,7 +2,11 @@
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <ExceptionParticipant v-model="excludeFrom" field="excludeFrom"></ExceptionParticipant>
+        <ExceptionParticipant
+          v-model="excludeFrom"
+          field="excludeFrom"
+          :exclude="this.excludeTo"
+        ></ExceptionParticipant>
       </div>
 
       <div class="field has-text-centered">
@@ -10,7 +14,11 @@
       </div>
 
       <div class="field">
-        <ExceptionParticipant v-model="excludeTo" field="excludeTo"></ExceptionParticipant>
+        <ExceptionParticipant
+          v-model="excludeTo"
+          field="excludeTo"
+          :exclude="this.excludeFrom"
+        ></ExceptionParticipant>
       </div>
     </div>
   </div>
