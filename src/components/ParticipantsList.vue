@@ -3,7 +3,10 @@
     <div class="notification">
       <h2>Start by adding all the participants:</h2>
     </div>
-    <Participant v-for="participant in participants" key="participant.email"></Participant>
+    <Participant v-for="(participant, index) in participants"
+      :id="index"
+      key="participant.email"
+    ></Participant>
   </div>
 </template>
 

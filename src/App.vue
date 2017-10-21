@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import ParticipantsList from '@/components/ParticipantsList'
+import ParticipantsList from './components/ParticipantsList'
 
 export default {
   name: 'app',
