@@ -12,7 +12,13 @@
 
       <div class="hero-body">
         <div class="container">
-          <Participants-List></Participants-List>
+          <section class="section">
+            <Participants-List></Participants-List>
+          </section>
+
+          <section class="section" v-if="hasParticipants">
+            <Exceptions-List></Exceptions-List>
+          </section>
         </div>
       </div>
 
@@ -22,16 +28,26 @@
 
 <script>
 import ParticipantsList from './components/ParticipantsList'
+import ExceptionsList from './components/ExceptionsList'
 
 export default {
   name: 'app',
 
   components: {
-    ParticipantsList
+    ParticipantsList,
+    ExceptionsList
+  },
+
+  computed: {
+    hasParticipants () {
+      return this.$store.state.participants.length > 1
+    }
   },
 
   beforeMount () {
     this.$store.commit('addNewParticipant')
+    // should we do this conditionally?
+    this.$store.commit('addNewException')
   }
 }
 </script>

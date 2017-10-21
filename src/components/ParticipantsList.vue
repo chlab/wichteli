@@ -5,7 +5,7 @@
     </div>
     <Participant v-for="(participant, index) in participants"
       :id="index"
-      key="participant.email"
+      key="index"
     ></Participant>
     <button class="button is-primary" @click="addNewParticipant">Add another</button>
   </div>
