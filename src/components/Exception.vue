@@ -4,7 +4,6 @@
       <div class="field">
         <ExceptionParticipant
           v-model="excludeFrom"
-          field="excludeFrom"
           :exclude="this.excludeTo"
         ></ExceptionParticipant>
       </div>
@@ -16,7 +15,6 @@
       <div class="field">
         <ExceptionParticipant
           v-model="excludeTo"
-          field="excludeTo"
           :exclude="this.excludeFrom"
         ></ExceptionParticipant>
       </div>
@@ -29,8 +27,9 @@ import ExceptionParticipant from '@/components/ExceptionParticipant'
 
 export default {
   props: {
+    // id of the exception in the store
     id: {
-      type: Number
+      type: String
     }
   },
 
@@ -41,7 +40,7 @@ export default {
   computed: {
     excludeFrom: {
       get () {
-        return this.$store.state.exceptions[this.id].excludeFrom
+        return this.$store.getters.exceptionById(this.id).excludeFrom
       },
       set (value) {
         this.$store.commit('updateException', { id: this.id, excludeFrom: value })
@@ -49,7 +48,7 @@ export default {
     },
     excludeTo: {
       get () {
-        return this.$store.state.exceptions[this.id].excludeTo
+        return this.$store.getters.exceptionById(this.id).excludeTo
       },
       set (value) {
         this.$store.commit('updateException', { id: this.id, excludeTo: value })

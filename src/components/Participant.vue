@@ -19,13 +19,13 @@ export default {
   props: {
     // the id of the participant in the store
     id: {
-      type: Number
+      type: String
     }
   },
   computed: {
     name: {
       get () {
-        return this.$store.state.participants[this.id].name
+        return this.$store.getters.participantById(this.id).name
       },
       set (value) {
         this.$store.commit('updateParticipant', { id: this.id, name: value })
@@ -34,7 +34,7 @@ export default {
 
     email: {
       get () {
-        return this.$store.state.participants[this.id].email
+        return this.$store.getters.participantById(this.id).email
       },
       set (value) {
         this.$store.commit('updateParticipant', { id: this.id, email: value })

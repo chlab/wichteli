@@ -1,8 +1,8 @@
 <template>
   <div class="select is-fullwidth">
-    <select @input="$emit('input', $event.target.value)">
+    <select v-model="value" @input="updateValue">
       <option value="-">--</option>
-      <option v-for="(participant, index) in filteredParticipants" :value="index">
+      <option v-for="participant in filteredParticipants" :value="participant.id">
         {{ participant.name }}
       </option>
     </select>
@@ -16,22 +16,40 @@ export default {
   props: {
     // exclude a participant from this list
     exclude: {
-      type: Number
-    },
-    // excludeFrom|excludeTo
-    field: {
       type: String
     }
   },
+
+  data () {
+    // we could directly emit the event target value but let's keep the control
+    // of the value in this component so we could reset it in certain situations
+    return {
+      value: '-'
+    }
+  },
+
   computed: {
     ...mapState(['participants']),
+
+    /**
+     * Filter excluded participants and empty names
+     * @return {Array}
+     */
     filteredParticipants () {
-      return this.participants.filter((participant, index) => {
-        // filter excluded participants
-        return parseInt(index) !== parseInt(this.exclude) &&
-        // filter empty participants
-        participant.name !== ''
-      })
+      return this.participants.filter(
+        ({ id, name }) => id !== this.exclude && name !== ''
+      )
+    }
+  },
+
+  methods: {
+    /**
+     * Emit the value to parent
+     * @param  {Object} e Event
+     */
+    updateValue (e) {
+      this.value = e.target.value
+      this.$emit('input', this.value)
     }
   }
 }
