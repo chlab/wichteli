@@ -1,15 +1,22 @@
 <template>
-  <div class="participant field is-horizontal">
-    <div class="field-body">
-      <div class="field">
-        <!-- @todo: consider adding icons -->
-        <input class="input" type="text" placeholder="Name" v-model="name">
-      </div>
+  <div class="participant card">
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <!-- @todo: consider adding icons -->
+          <input class="input" type="text" placeholder="Name" v-model="name">
+        </div>
 
-      <div class="field">
-        <input class="input" type="email" placeholder="E-Mail" v-model="email">
-      </div>
+        <div class="field">
+          <input class="input" type="email" placeholder="E-Mail" v-model="email">
+        </div>
 
+        <!-- todo: vertically center and only show if !first. also, make it work :) -->
+        <div class="is-inline-block">
+          <a class="delete"></a>
+        </div>
+
+      </div>
     </div>
   </div>
 </template>

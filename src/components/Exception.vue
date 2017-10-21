@@ -1,22 +1,24 @@
 <template>
-  <div class="field is-horizontal">
-    <div class="field-body">
-      <div class="field">
-        <ExceptionParticipant
-          v-model="excludeFrom"
-          :exclude="this.excludeTo"
-        ></ExceptionParticipant>
-      </div>
+  <div class="card exception">
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <ExceptionParticipant
+            v-model="excludeFrom"
+            :exclude="this.excludeTo"
+          ></ExceptionParticipant>
+        </div>
 
-      <div class="field has-text-centered">
-        should not be assigned to
-      </div>
+        <div class="field has-text-centered">
+          should not be assigned to
+        </div>
 
-      <div class="field">
-        <ExceptionParticipant
-          v-model="excludeTo"
-          :exclude="this.excludeFrom"
-        ></ExceptionParticipant>
+        <div class="field">
+          <ExceptionParticipant
+            v-model="excludeTo"
+            :exclude="this.excludeFrom"
+          ></ExceptionParticipant>
+        </div>
       </div>
     </div>
   </div>
