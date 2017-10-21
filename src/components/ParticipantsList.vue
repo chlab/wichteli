@@ -7,17 +7,23 @@
       :id="index"
       key="participant.email"
     ></Participant>
+    <button class="button is-primary" @click="addNewParticipant">Add another</button>
   </div>
 </template>
 
 <script>
 import Participant from '@/components/Participant'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   components: {
     Participant
   },
-  computed: mapState(['participants'])
+
+  computed: mapState(['participants']),
+
+  methods: {
+    ...mapMutations(['addNewParticipant'])
+  }
 }
 </script>
