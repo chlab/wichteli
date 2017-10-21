@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   props: {
     // exclude a participant from this list
@@ -29,14 +27,12 @@ export default {
   },
 
   computed: {
-    ...mapState(['participants']),
-
     /**
      * Filter excluded participants and empty names
      * @return {Array}
      */
     filteredParticipants () {
-      return this.participants.filter(
+      return this.$store.state.participants.filter(
         ({ id, name }) => id !== this.exclude && name !== ''
       )
     }
