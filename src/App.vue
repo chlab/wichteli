@@ -29,6 +29,7 @@
 <script>
 import ParticipantsList from './components/ParticipantsList'
 import ExceptionsList from './components/ExceptionsList'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
@@ -39,9 +40,7 @@ export default {
   },
 
   computed: {
-    hasParticipants () {
-      return this.$store.state.participants.length > 1
-    }
+    ...mapGetters(['hasParticipants'])
   },
 
   beforeMount () {

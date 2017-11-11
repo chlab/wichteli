@@ -18,7 +18,8 @@ export default new Vuex.Store({
 
   getters: {
     participantById: state => id => state.participants.find(p => p.id === id),
-    exceptionById: state => id => state.exceptions.find(e => e.id === id)
+    exceptionById: state => id => state.exceptions.find(e => e.id === id),
+    hasParticipants: state => state.participants.length > 0
   },
 
   mutations
