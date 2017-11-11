@@ -11,15 +11,6 @@
   "plugins": ["transform-runtime"],
   "env": {
     "test": {
-      "presets": ["env", "stage-2"],
-      "plugins": [
-        ["module-resolver", {
-          "root": ["./src"],
-          "alias": {
-            "@": "./src"
-          }
-        }]
-      ]
-    }
+      "presets": ["env", "stage-2"]    }
   }
 }
