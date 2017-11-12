@@ -17,7 +17,9 @@
           </section>
 
           <section class="section" v-if="hasParticipants">
-            <Exceptions-List></Exceptions-List>
+            <div id="exceptions-list-container">
+              <Exceptions-List></Exceptions-List>
+            </div>
           </section>
         </div>
       </div>

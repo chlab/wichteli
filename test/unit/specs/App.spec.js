@@ -12,12 +12,13 @@ describe('App.vue', () => {
     addNewParticipant: jest.fn(),
     addNewException: jest.fn()
   }
-  const store = new Vuex.Store({
-    mutations,
-    getters: { hasParticipants: jest.fn() }
-  })
 
   it('should call the store to add inintial data before it\'s mounted', () => {
+    const store = new Vuex.Store({
+      mutations,
+      getters: { hasParticipants: jest.fn() }
+    })
+
     shallow(App, {
       localVue,
       store
@@ -26,5 +27,17 @@ describe('App.vue', () => {
     expect(mutations.addNewException).toHaveBeenCalledTimes(1)
   })
 
-  // @todo add test to check if Exception list is added if there are participants
+  it('should show exceptions list if there are participants', () => {
+    const store = new Vuex.Store({
+      mutations,
+      // return true so App.vue thinks we have participants
+      getters: { hasParticipants: () => true }
+    })
+
+    const wrapper = shallow(App, {
+      localVue,
+      store
+    })
+    expect(wrapper.contains('#exceptions-list-container')).toBe(true)
+  })
 })
