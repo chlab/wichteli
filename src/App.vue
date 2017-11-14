@@ -12,14 +12,21 @@
 
       <div class="hero-body">
         <div class="container">
+          <!-- define participants -->
           <section class="section">
             <Participants-List></Participants-List>
           </section>
 
+          <!-- define exceptions -->
           <section class="section" v-if="hasParticipants">
             <div id="exceptions-list-container">
               <Exceptions-List></Exceptions-List>
             </div>
+          </section>
+
+          <!-- assign -->
+          <section class="section">
+            <button class="button is-primary is-large is-block" @click="assign">Assign</button>
           </section>
         </div>
       </div>

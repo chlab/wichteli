@@ -9,7 +9,7 @@
         :id="exception.id"
       ></Exception>
 
-      <button class="button is-primary" @click="addNewException">Add another</button>
+      <button class="button" @click="addNewException">Add another</button>
   </div>
 </template>
 

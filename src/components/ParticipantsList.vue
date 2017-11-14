@@ -9,7 +9,7 @@
       key="participant.id"
     ></Participant>
 
-    <button class="button is-primary" @click="addNewParticipant">Add another</button>
+    <button class="button" @click="addNewParticipant">Add another</button>
   </div>
 </template>
 
