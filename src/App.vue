@@ -40,6 +40,9 @@ import ParticipantsList from './components/ParticipantsList'
 import ExceptionsList from './components/ExceptionsList'
 import { mapGetters } from 'vuex'
 
+import shuffle from 'lodash.shuffle'
+import each from 'lodash.foreach'
+
 export default {
   name: 'app',
 
@@ -56,6 +59,18 @@ export default {
     this.$store.commit('addNewParticipant')
     // should we do this conditionally?
     this.$store.commit('addNewException')
+  },
+
+  methods: {
+    /**/
+    assign () {
+      // shuffle the participants
+      const participantIds = shuffle(this.$store.getters.validParticipants.map(({ id }) => id))
+      // find an assignee for each of them
+      each(participantIds, participant => {
+        let assignee = participantIds.find(id => id !== participant)
+      })
+    }
   }
 }
 </script>
