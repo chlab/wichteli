@@ -1,6 +1,10 @@
 <template>
   <div class="box">
-    <participant />
+    <participant
+      v-for="participant in $accessor.participants"
+      :key="participant.id"
+      :participant="participant"
+    />
     <button class="button is-outlined is-fullwidth">
       Send E-mails to all participants
     </button>
@@ -8,15 +12,17 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 import Participant from './Participant.vue'
 
-export default Vue.extend({
+@Component({
   components: {
     Participant
   }
 })
+export default class ParticipantsList extends Vue {
+}
 </script>
 
 <style scoped></style>

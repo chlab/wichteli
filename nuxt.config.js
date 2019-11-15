@@ -42,7 +42,10 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    'nuxt-typed-vuex'
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -68,6 +71,9 @@ export default {
         }
       }
     },
+    transpile: [
+      /nuxt-typed-vuex/,
+    ],
     /*
      ** You can extend webpack config here
      */

@@ -9,7 +9,6 @@
         "dom"
       ],
       "esModuleInterop": true,
-      "allowJs": true,
       "sourceMap": true,
       "strict": true,
       "noEmit": true,
@@ -25,7 +24,8 @@
       "types": [
         "@types/node",
         "@nuxt/types"
-      ]
+      ],
+      "experimentalDecorators": true
     },
     "exclude": [
       "node_modules",
