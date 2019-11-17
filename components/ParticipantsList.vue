@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <participant
-      v-for="participant in $accessor.participants"
+      v-for="participant in $accessor.participantsOrderedById"
       :key="participant.id"
       :participant="participant"
     />

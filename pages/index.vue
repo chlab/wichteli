@@ -17,6 +17,7 @@ import ParticipantsList from '~/components/ParticipantsList.vue'
 export default class App extends Vue {
   mounted() {
     this.$accessor.ADD_PARTICIPANT()
+    this.$accessor.ADD_PARTICIPANT()
   }
 }
 </script>

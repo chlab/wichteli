@@ -1,6 +1,6 @@
 import { getAccessorType, actionTree, mutationTree } from 'nuxt-typed-vuex';
 
-import { Participant } from '~/entities/types';
+import { Participant } from '~/model/participant';
 
 /**
  * State
@@ -15,6 +15,8 @@ export const state = (): {
  * Getters
  */
 export const getters = {
+    participantsOrderedById: (state: RootState) => [...state.participants].sort((a, b) => a.id - b.id),
+
     isLastParticipantFilled: (state: RootState) => {
         if (state.participants.length < 1) {
             return false;
